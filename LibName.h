@@ -26,6 +26,9 @@ SOFTWARE.
 #define LibName
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <stdlib.h>
 
 
 
@@ -36,7 +39,23 @@ double sub(double a, double b);
 
 double mull(double a, double b);
 
-double div(double a, double b);
+double div_number(double a, double b);
+
+
+
+bool are_strings_equal(const char *a, const char *b);
+
+
+char * join_strings(const char *a, const char *b);
+
+
+
+
+
+void write_file(const char *path, const char *content);
+
+char *read_file(const char *fileName);
+
 
 
 
@@ -54,10 +73,73 @@ double mull(double a, double b){
     return a *b;
 }
 
-double div(double a, double b){
+double div_number(double a, double b){
     return a /b;
 }
 
+
+
+
+
+
+bool are_strings_equal(const char *a, const char *b){
+    return strcmp(a,b) == 0;
+}
+
+
+char * join_strings(const char *a, const char *b){
+    long new_size  = strlen(a) + strlen(b) +1;
+    char *result = calloc( sizeof(char),new_size);
+    sprintf(result,"%s%s",a,b);
+    return result;
+}
+
+
+
+
+
+void write_file(const char *path, const char *content){
+
+        FILE *file = fopen(path, "w");
+        if(!file){
+            return;
+        }
+        fprintf(file,"%s",content);
+        fclose(file);
+}
+
+char *read_file(const char *fileName) {
+    FILE *file = fopen(fileName, "r");
+    
+    if (file == NULL) {
+        perror("Error opening the file");
+        return NULL;
+    }
+    
+    fseek(file, 0, SEEK_END);
+    long size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    
+    char *content = (char *)malloc(size + 1);
+    if (content == NULL) {
+        perror("Memory allocation error");
+        fclose(file);
+        return NULL;
+    }
+    
+    size_t bytesRead = fread(content, 1, size, file);
+    if (bytesRead != size) {
+        perror("Error reading the file");
+        free(content);
+        fclose(file);
+        return NULL;
+    }
+    
+    content[size] = '\0'; // Add null terminator
+    
+    fclose(file);
+    return content;
+}
 
 
 #endif //LibName
