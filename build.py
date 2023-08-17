@@ -9,12 +9,12 @@ ct.generate_amalgamated_code(STARTER,OUTPUT)
 
 
 test = ct.FolderTestPreset(
-    folder='tests',
-    side_effect_folder='side_effect',
+    folder=TEST_FOLDER,
+    side_effect_folder=SIDE_EFFECT_FOLDER,
     use_valgrind=USE_VALGRIND
 )
 
-test.generate_ouptut(reconstruct=False)
+test.generate_ouptut(reconstruct=RECONSTRUCT)
 test.start_test()
 
 ct.include_code_in_markdown('README.md',save_file=True)

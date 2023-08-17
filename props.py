@@ -1,7 +1,8 @@
 
 
 STARTER = 'src/start.h'
-TEST_FOLDER = 'test'
+TEST_FOLDER = 'tests'
+SIDE_EFFECT_FOLDER = 'side_effect'
 #the final name of your lib
 OUTPUT = 'LibName.h'
 
