@@ -6,4 +6,4 @@ double sub(double a, double b);
 
 double mull(double a, double b);
 
-double div(double a, double b);
+double div_number(double a, double b);
