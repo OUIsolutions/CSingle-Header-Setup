@@ -4,6 +4,7 @@ This is a complete setup for you to build single header libs in C,
 providing from unit tests, with side effect verification,
 to creation of automatic examples and code Amalgamation
 
+
 ### Understanding the Props 
 The **props.py** contains all the constants that wil be used when you run the
 **build.py**, after clone the repo, read all the flags (it has coments explaning)
@@ -52,4 +53,17 @@ int main(){
     double r = add(10,20);
     printf("%lf",r);
 }
+~~~
+
+### Testing Locally 
+
+for testing your code localy you can just import the start normal 
+
+~~~c 
+#include "src/start.h"
+
+int main(){
+
+}
+
 ~~~
