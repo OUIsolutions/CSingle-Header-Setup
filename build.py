@@ -7,18 +7,14 @@ from props import *
 
 
 ct.generate_amalgamated_code(STARTER,OUTPUT_TEST)
-use_valgrind = True 
-
-if osname() == 'Windows':
-    use_valgrind = False
-
 
 
 test = ct.FolderTestPreset(
-    folder='tests/main_test',
-    side_effect_folder='tests/target',
-    use_valgrind=use_valgrind
-    )
+    folder='tests',
+    side_effect_folder='side_effect',
+    use_valgrind=USE_VALGRIND
+)
+
 test.generate_ouptut(reconstruct=False)
 test.start_test()
 create_exemples(TEST_NAME,OUTPUT)
