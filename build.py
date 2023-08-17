@@ -1,7 +1,5 @@
 import Build.CToolKit as ct
 from Build.exemple_build import create_exemples
-from Build.full_folder_zip import zip_folder
-from os.path import isdir
 from os import makedirs
 from props import *
 
@@ -25,4 +23,3 @@ test.start_test()
 
 create_exemples()
 ct.include_code_in_markdown('README.md',save_file=True)
-zip_folder(ZIP_NAME)
