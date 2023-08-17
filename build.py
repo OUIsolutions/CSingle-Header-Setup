@@ -1,11 +1,19 @@
 import Build.CToolKit as ct
 from Build.exemple_build import create_exemples
 from Build.full_folder_zip import zip_folder
+from os.path import isdir
+from os import mkdir
 from props import *
 
 
 
 ct.generate_amalgamated_code(STARTER,OUTPUT)
+
+if SIDE_EFFECT_FOLDER is None:
+    SIDE_EFFECT_FOLDER = 'side_effect'
+
+if not isdir(SIDE_EFFECT_FOLDER):
+    mkdir(SIDE_EFFECT_FOLDER)
 
 
 test = ct.FolderTestPreset(
