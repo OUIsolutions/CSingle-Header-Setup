@@ -27,8 +27,9 @@ def move_all_c(current_path:str):
                 content = content.replace(f'../../{OUTPUT}',OUTPUT)
                 content = content.replace(f'../{OUTPUT}',OUTPUT)
 
-            name =dirname(path).replace('T_','').replace(TEST_FOLDER,EXEMPLE_FOLDER)
             
+            name =dirname(path).replace('T_','').replace(TEST_FOLDER,EXEMPLE_FOLDER)
+            makedirs('/'.join(name.split('/')[0:-1]),exist_ok=True)
             with open(f'{name}.c','w') as arq2:
                 arq2.write(content)
 
