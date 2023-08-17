@@ -17,6 +17,8 @@ class FolderTestPressetCreation(FolderTestPresetExtras):
 
         execution_file = self._get_file_to_execute(folder)
         expected_file = self._get_expected_file(folder)
+       
+ 
 
 
         generated_result: dict or ComandLineExecution = execute_test_for_file(
