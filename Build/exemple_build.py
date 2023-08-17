@@ -9,36 +9,32 @@ from props import *
 
 
 
-def move_all_c(destination:str,current_path:str,test_name:str,output:str):
+def move_all_c(current_path:str):
     elements = listdir(current_path)
     for e in elements:
         path = f'{current_path}/{e}'
 
         if isdir(path):
-            move_all_c(destination,path,test_name,output)
+            move_all_c(path)
             continue
 
         if e.endswith('.c') or e.endswith('.cpp'):
             with open(path,'r') as arq:
                 content = arq.read()
 
-                content = content.replace(f'../../../{test_name}',output)
-                content = content.replace(f'../../{test_name}',output)
-                content = content.replace(f'../{test_name}',output)
+                content = content.replace(f'../../../{OUTPUT}',OUTPUT)
+                content = content.replace(f'../../../../{OUTPUT}',OUTPUT)
+                content = content.replace(f'../../{OUTPUT}',OUTPUT)
+                content = content.replace(f'../{OUTPUT}',OUTPUT)
 
 
             name =dirname(path).split('/')[-1].replace('T_','')
-            with open(f'{destination}/{name}.c','w') as arq2:
+        
+            with open(f'{EXEMPLE_FOLDER}/{name}.c','w') as arq2:
                 arq2.write(content)
 
 
 
-def create_exemples(test_name:str,output:str):
-    rmtree('exemples',ignore_errors=True)
-    elements = listdir(TEST_FOLDER)
-    for e in elements:
-        path = f'tests/main_test/{e}'
-        if isdir(path):
-            dest = f'exemples/{e}'
-            makedirs(dest)
-            move_all_c(dest,path,test_name,output)
+def create_exemples():
+    rmtree(EXEMPLE_FOLDER,ignore_errors=True)
+    move_all_c(TEST_FOLDER)

@@ -25,5 +25,6 @@ test = ct.FolderTestPreset(
 test.generate_ouptut(reconstruct=RECONSTRUCT)
 test.start_test()
 
+create_exemples()
 ct.include_code_in_markdown('README.md',save_file=True)
 zip_folder(ZIP_NAME)

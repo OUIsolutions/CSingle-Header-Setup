@@ -18,3 +18,4 @@ ZIP_NAME ='LibName'
 USE_VALGRIND = True
 
 
+EXEMPLE_FOLDER = 'exemples'
