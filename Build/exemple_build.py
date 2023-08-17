@@ -27,14 +27,14 @@ def move_all_c(current_path:str):
                 content = content.replace(f'../../{OUTPUT}',OUTPUT)
                 content = content.replace(f'../{OUTPUT}',OUTPUT)
 
-
-            name =dirname(path).split('/')[-1].replace('T_','')
-        
-            with open(f'{EXEMPLE_FOLDER}/{name}.c','w') as arq2:
+            name =dirname(path).replace('T_','').replace(TEST_FOLDER,EXEMPLE_FOLDER)
+            
+            with open(f'{name}.c','w') as arq2:
                 arq2.write(content)
 
 
 
 def create_exemples():
     rmtree(EXEMPLE_FOLDER,ignore_errors=True)
+    makedirs(EXEMPLE_FOLDER)
     move_all_c(TEST_FOLDER)

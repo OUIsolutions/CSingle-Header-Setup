@@ -2,7 +2,7 @@ import Build.CToolKit as ct
 from Build.exemple_build import create_exemples
 from Build.full_folder_zip import zip_folder
 from os.path import isdir
-from os import mkdir
+from os import makedirs
 from props import *
 
 
@@ -13,8 +13,7 @@ if SIDE_EFFECT_FOLDER is None:
     SIDE_EFFECT_FOLDER = 'side_effect'
 
 if not isdir(SIDE_EFFECT_FOLDER):
-    mkdir(SIDE_EFFECT_FOLDER)
-
+    makedirs(SIDE_EFFECT_FOLDER)
 
 test = ct.FolderTestPreset(
     folder=TEST_FOLDER,
