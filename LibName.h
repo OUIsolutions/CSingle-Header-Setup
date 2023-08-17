@@ -25,6 +25,7 @@ SOFTWARE.
 #ifndef LibName
 #define LibName
 
+#include <stdio.h>
 
 
 

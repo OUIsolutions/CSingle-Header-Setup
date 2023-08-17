@@ -24,7 +24,7 @@ SOFTWARE.
 
 #ifndef LibName
 #define LibName
-
+#include "imports.h"
 #include "declaration.h"
 #include "definition.h"
 
