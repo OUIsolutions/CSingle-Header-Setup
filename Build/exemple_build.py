@@ -5,6 +5,7 @@ from shutil import rmtree
 from os import remove,makedirs
 from os import listdir
 from os.path import isdir,dirname
+from props import *
 
 
 
@@ -34,12 +35,10 @@ def move_all_c(destination:str,current_path:str,test_name:str,output:str):
 
 def create_exemples(test_name:str,output:str):
     rmtree('exemples',ignore_errors=True)
-    elements = listdir('tests/main_test')
+    elements = listdir(TEST_FOLDER)
     for e in elements:
         path = f'tests/main_test/{e}'
         if isdir(path):
             dest = f'exemples/{e}'
             makedirs(dest)
             move_all_c(dest,path,test_name,output)
-    makedirs('exemples/locker')        
-    move_all_c('exemples/locker','tests/locker_test',test_name,output)

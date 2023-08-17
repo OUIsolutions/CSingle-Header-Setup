@@ -1,8 +1,7 @@
 
 
 STARTER = 'src/start.h'
-TEST_NAME  = 'test.h'
-OUTPUT_TEST = f'tests/{TEST_NAME}'
+TEST_FOLDER = 'test'
 #the final name of your lib
 OUTPUT = 'LibName.h'
 
