@@ -2,10 +2,11 @@
 
 STARTER = 'src/start.h'
 TEST_FOLDER = 'tests'
+#if your project alterate something (write/modify) , make that changes
+# into the side effect folder,it will be reconstructed on every tests
 SIDE_EFFECT_FOLDER = 'side_effect'
 #the final name of your lib
 OUTPUT = 'LibName.h'
-
 #These its the name of the output zip of your lib
 ZIP_NAME ='LibName'
 USE_VALGRIND = True
